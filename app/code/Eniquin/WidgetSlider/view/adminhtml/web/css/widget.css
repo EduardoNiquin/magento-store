@@ -1,0 +1,215 @@
+div#widget_options_Eniquin\\WidgetSlider\\Block\\Widget\\SlideWidget {
+
+    /* Contenedor principal */
+    .admin__field-control.control {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        padding: 24px;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .admin__field-control.control label {
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #000000ba;
+    }
+
+    .admin__field-control.control input {
+        border: 1px solid #0000004f;
+        border-radius: 3px;
+        padding: 5px 10px;
+        color: #333;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin__field-control.control .clone_remove {
+        display: inline-block;
+        padding: 6px 10px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: #d42a2a;
+        text-decoration: none;
+        border: 1px solid #d42a2a;
+        border-radius: 4px;
+        background: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .admin__field-control.control input.slide-hidden {
+        display: none !important;
+    }
+
+    .admin__field-control.control .clone_remove:hover {
+        background: #d42a2a;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .admin__field-control.control:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+    /* Cada Slide */
+    .admin__field-slide {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Inputs */
+    .admin__field-slide input.slide-field {
+        border-radius: 8px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin__field-slide input.slide-field:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        outline: none;
+    }
+
+    /* Diseño responsivo */
+    @media (max-width: 600px) {
+        .admin__field-control.control {
+            gap: 16px;
+        }
+    }
+
+}
+
+
+[action*="eniquin_widgetslider_slide_widget"] {
+    /* Contenedor principal */
+    .admin__fieldset {
+        display: grid;
+        gap: 24px;
+        padding: 24px;
+        background: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Slides Container */
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+    }
+
+    /* Cada Slide */
+    .admin__field.field.field-clone {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .admin__field.field.field-clone:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+
+    /* Etiquetas */
+    .admin__field.field.field-clone label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 4px;
+    }
+
+    /* Inputs */
+    .admin__field.field.field-clone input.slide-field {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .admin__field.field.field-clone input.slide-field:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        outline: none;
+    }
+
+    /* Botón Remove Slide */
+    .admin__field.field.field-clone .clone_remove {
+        align-self: flex-start;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #d42a2a;
+        text-decoration: none;
+        border: 1px solid #d42a2a;
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .admin__field.field.field-clone .clone_remove:hover {
+        background: #d42a2a;
+        color: #fff;
+    }
+
+    /* Botón Add Slide */
+    .clone_new {
+        display: inline-block;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #007bff;
+        text-decoration: none;
+        border: 1px solid #007bff;
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .clone_new:hover {
+        background: #007bff;
+        color: #fff;
+    }
+
+    /* Ajuste para otros campos */
+    .admin__field-control.control {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Diseño responsivo */
+    @media (max-width: 768px) {
+        .content {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+    }
+
+}

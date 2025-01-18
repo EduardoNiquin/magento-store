@@ -1,12 +1,10 @@
-// Variables globales
-@theme__primary-color: #3498db;
-@theme__link-color: #2ecc71;
-
-@personal-background-light: #FFFFFF99;
-@personal-background-dark: #09090A99;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+// Colores con opacidad usando RGBA
+@personal-background-light: rgba(255,255,255,255); // 60% opacidad
+@personal-background-dark: rgba(9,9,10,255);// 60% opacidad
 
 @personal-text-light: #09090A;
-@personal-text-dark: #FFFFFF99;
+@personal-text-dark: #FFFFFF;
 
 // Estilos globales
 body {
@@ -17,5 +15,5 @@ body {
 
 // Importaciones de otros archivos LESS
 @import '_typography.less'; // Fuentes personalizadas
-@import '_header.less';     // Estilos del header (renombrado)
-@import '_footer.less';     // Estilos del footer (renombrado)
+@import '_header.less';     // Estilos del header
+@import '_footer.less';     // Estilos del footer

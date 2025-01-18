@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Cargar el archivo CSS principal de Swiper -->
+        <css src="Eniquin_WidgetSlider::css/swiper.min.css"/>
+        <!-- Cargar nuestro slider.css personalizado -->
+        <css src="Eniquin_WidgetSlider::css/slider.css"/>
+    </head>
+    <body>
+        <referenceContainer name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="eniquin.swiper.js" before="-">
+                <arguments>
+                    <argument name="template" xsi:type="string">Eniquin_WidgetSlider::include_swiper_js.phtml</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

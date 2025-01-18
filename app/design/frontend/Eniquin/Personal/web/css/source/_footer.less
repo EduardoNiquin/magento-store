@@ -1,5 +1,79 @@
 .personal-footer-theme {
     background-color: @personal-background-dark;
-    color: @personal-text-light;
+    color: @personal-text-dark;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #27272a;
+    border-bottom: 0.5px solid #27272a;
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1280px;
+        width: 100%;
+
+        .footer-content-item{
+            width: 25%;
+
+            .footer-content-item-title{
+
+                h3{
+                    font-size: 1.65rem;
+                    font-weight: 600;
+                }
+
+            }
+
+            .footer-content-item-content{
+
+                ul{
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li a{
+                        color : @personal-text-dark;
+                        font-size: 1.25rem;
+                        font-family: 'Inter', Arial, sans-serif;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .social-media-links{
+                    display: flex;
+                    align-items: center;
+                    gap: 5%;
+                }
+
+                .newsletter-form-title{
+                    h3{
+                        color : @personal-text-dark;
+                        font-size: 1.25rem;
+                        margin: 0 0 5px 0;
+                    }
+                }
+
+                .newsletter-form-content #newsletter-form{
+                    display: flex;
+                    gap: 0.5rem;
+                }
+
+                .sr-only{
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0, 0, 0, 0);
+                    white-space: nowrap;
+                    border-width: 0;
+                }
+            }
+        }
+    }
 }

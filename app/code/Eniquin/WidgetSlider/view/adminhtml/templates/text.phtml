@@ -1,0 +1,13 @@
+<?php
+/** @var \Magento\Backend\Block\Template $block */
+$inputField     = $block->getData('input_field');    // El elemento <input type="text">
+$labelRemoveRow = $block->getData('label_remove_row');
+$isClone        = $block->getData('is_clone');
+?>
+<div class="admin__field field <?= $isClone ? 'field-to-clone' : 'field-clone' ?>"
+     <?= $isClone ? 'style="display:none;"' : '' ?>>
+    <div class="admin__field-control control">
+        <?= $inputField->getElementHtml(); ?>
+        <a href="#" class="clone_remove"><?= $labelRemoveRow ?: '[Remove Row]' ?></a>
+    </div>
+</div>

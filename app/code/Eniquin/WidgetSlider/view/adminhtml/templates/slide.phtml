@@ -1,0 +1,86 @@
+<?php
+/**
+ * @var \Magento\Backend\Block\Template $block
+ */
+$desktopImage = $block->getData('desktopImageVal'); // Imagen Desktop
+$mobileImage  = $block->getData('mobileImageVal');  // Imagen Mobile
+$btnText1     = $block->getData('btnText1Val');
+$btnUrl1      = $block->getData('btnUrl1Val');
+$btnText2     = $block->getData('btnText2Val');
+$btnUrl2      = $block->getData('btnUrl2Val');
+$btnText3     = $block->getData('btnText3Val');
+$btnUrl3      = $block->getData('btnUrl3Val');
+
+$labelRemove = $block->getData('label_remove_row');
+$isClone     = $block->getData('is_clone');
+?>
+<div class="admin__field field <?= $isClone ? 'field-to-clone' : 'field-clone' ?>"
+     <?= $isClone ? 'style="display:none;"' : '' ?>>
+    <div class="admin__field-control control">
+        <!-- Imagen Desktop -->
+        <label>Desktop Image URL:</label>
+        <input type="text" class="slide-field desktop-image" value="<?= $block->escapeHtml($desktopImage) ?>" />
+
+        <!-- Imagen Mobile -->
+        <label>Mobile Image URL:</label>
+        <input type="text" class="slide-field mobile-image" value="<?= $block->escapeHtml($mobileImage) ?>" />
+
+        <!-- Botón 1 -->
+        <label>Button #1:</label>
+        <input type="text" class="slide-field btn-text1" value="<?= $block->escapeHtml($btnText1) ?>" />
+        <label>URL #1:</label>
+        <input type="text" class="slide-field btn-url1" value="<?= $block->escapeHtml($btnUrl1) ?>" />
+
+        <!-- Botón 2 -->
+        <label>Button #2:</label>
+        <input type="text" class="slide-field btn-text2" value="<?= $block->escapeHtml($btnText2) ?>" />
+        <label>URL #2:</label>
+        <input type="text" class="slide-field btn-url2" value="<?= $block->escapeHtml($btnUrl2) ?>" />
+
+        <!-- Botón 3 -->
+        <label>Button #3:</label>
+        <input type="text" class="slide-field btn-text3" value="<?= $block->escapeHtml($btnText3) ?>" />
+        <label>URL #3:</label>
+        <input type="text" class="slide-field btn-url3" value="<?= $block->escapeHtml($btnUrl3) ?>" />
+
+        <!-- Hidden input -->
+        <input type="hidden" name="parameters[slides][]" class="slide-hidden" />
+
+        <br>
+        <a href="#" class="clone_remove"><?= $labelRemove ?: '[Remove Slide]' ?></a>
+    </div>
+</div>
+
+<script>
+require(['jquery'], function($){
+    $(document).ready(function(){
+        function updateHidden($row) {
+            // desktopImage|mobileImage|btnText1|btnUrl1|btnText2|btnUrl2|btnText3|btnUrl3
+            let desktopImg = $row.find('.desktop-image').val() || '';
+            let mobileImg  = $row.find('.mobile-image').val()  || '';
+
+            let t1 = $row.find('.btn-text1').val() || '';
+            let u1 = $row.find('.btn-url1').val()  || '';
+
+            let t2 = $row.find('.btn-text2').val() || '';
+            let u2 = $row.find('.btn-url2').val()  || '';
+
+            let t3 = $row.find('.btn-text3').val() || '';
+            let u3 = $row.find('.btn-url3').val()  || '';
+
+            let joined = `${desktopImg}|${mobileImg}|${t1}|${u1}|${t2}|${u2}|${t3}|${u3}`;
+            $row.find('.slide-hidden').val(joined);
+        }
+
+        // Actualiza en cada cambio
+        $(document).on('input', '.slide-field', function() {
+            updateHidden($(this).closest('.admin__field'));
+        });
+
+        // Inicializa al cargar
+        $('.admin__field.field-clone').each(function() {
+            updateHidden($(this));
+        });
+    });
+});
+</script>

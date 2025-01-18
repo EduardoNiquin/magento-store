@@ -1,0 +1,93 @@
+<?php
+/** @var \Eniquin\WidgetSlider\Block\Widget\SlideWidget $block */
+$slides         = $block->getSlides();
+$slidesCount    = count($slides);
+$jsonSlides     = json_encode($slides);
+$sliderSpeed    = $block->getSliderSpeed();
+$showArrows     = $block->showArrows() ? 'true' : 'false';
+$showPagination = $block->showPagination() ? 'true' : 'false';
+$widgetUid      = $block->getWidgetUid();
+?>
+
+<div class="eniquin-slider-container <?= $widgetUid ?>">
+    <div class="my-swiper-container">
+        <div class="swiper mySwiper" id="slider-<?= $widgetUid ?>">
+            <div class="swiper-wrapper" id="my-swiper-wrapper-<?= $widgetUid ?>">
+                <!-- Se poblará vía JavaScript -->
+            </div>
+            <?php if ($block->showPagination()): ?>
+                <div class="swiper-pagination swiper-pagination-<?= $widgetUid ?>"></div>
+            <?php endif; ?>
+            <?php if ($block->showArrows()): ?>
+                <div class="swiper-button-next swiper-button-next-<?= $widgetUid ?>"></div>
+                <div class="swiper-button-prev swiper-button-prev-<?= $widgetUid ?>"></div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+require(['jquery'], function($) {
+    $(document).ready(function(){
+        var slidesData   = <?=$jsonSlides?> || [];
+        var slidesCount  = <?=$slidesCount?>;
+        var sliderSpeed  = <?=$sliderSpeed?>;
+        var showArrows   = <?=$showArrows?>;
+        var showPag      = <?=$showPagination?>;
+
+        var screenWidth = window.innerWidth;
+        var isMobile = screenWidth <= 768;
+
+        var $swiperWrapper = $('#my-swiper-wrapper-<?= $widgetUid ?>');
+        $swiperWrapper.empty();
+
+        slidesData.forEach(function(slide) {
+            // Determinar la imagen según el tamaño
+            var imageSrc = isMobile && slide.mobile ? slide.mobile : slide.desktop;
+            imageSrc = imageSrc ? imageSrc.trim() : '';
+
+            var slideHtml = '<div class="swiper-slide <?= $widgetUid ?>-slide">';
+            if (imageSrc !== '') {
+                slideHtml += '<div class="slide-image-container">';
+                slideHtml += '<img src="' + imageSrc + '" alt="Slide Image" class="<?= $widgetUid ?>-slide-image" />';
+
+                // Botones
+                if (slide.buttons) {
+                    slideHtml += '<div class="slide-buttons-container">';
+                    slide.buttons.forEach(function(btn){
+                        var text = (btn.text || '').trim();
+                        var url  = (btn.url || '').trim();
+                        if (text !== '' || url !== '') {
+                            slideHtml += '<a href="' + url + '" class="slide-button <?= $widgetUid ?>-button">' + text + '</a>';
+                        }
+                    });
+                    slideHtml += '</div>';
+                }
+                slideHtml += '</div>';
+            }
+            slideHtml += '</div>';
+            $swiperWrapper.append(slideHtml);
+        });
+
+        // Iniciar Swiper si hay >= 2 slides
+        if (slidesCount >= 2) {
+            var swiper = new Swiper('#slider-<?= $widgetUid ?>', {
+                loop: true,
+                slidesPerView: 1,
+                autoplay: sliderSpeed > 0 ? {
+                    delay: sliderSpeed,
+                    disableOnInteraction: false,
+                } : false,
+                navigation: {
+                    nextEl: '.swiper-button-next-<?= $widgetUid ?>',
+                    prevEl: '.swiper-button-prev-<?= $widgetUid ?>',
+                },
+                pagination: {
+                    el: '.swiper-pagination-<?= $widgetUid ?>',
+                    clickable: true,
+                },
+            });
+        }
+    });
+});
+</script>

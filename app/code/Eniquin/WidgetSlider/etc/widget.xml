@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <!-- Widget de Slider Dinámico -->
+    <widget id="eniquin_widgetslider_slide_widget"
+            class="Eniquin\WidgetSlider\Block\Widget\SlideWidget">
+        <label translate="true">Eniquin Slider Widget</label>
+        <description translate="true">
+            Widget para mostrar Slides con Imagen y hasta 3 botones, usando SwiperJS
+        </description>
+        <parameters>
+            <!-- Slides Dinámicos -->
+            <parameter name="slides" xsi:type="block" visible="true" sort_order="1">
+                <label translate="true">Slides</label>
+                <block class="Eniquin\WidgetSlider\Block\Adminhtml\Widget\Dynamic">
+                    <data>
+                        <item name="label" xsi:type="string">Slide</item>
+                        <item name="element" xsi:type="string">Eniquin\WidgetSlider\Block\Adminhtml\Widget\Slide</item>
+                        <item name="label_add_row" xsi:type="string">Add Slide</item>
+                        <item name="label_remove_row" xsi:type="string">Remove Slide</item>
+                    </data>
+                </block>
+            </parameter>
+
+            <!-- Velocidad de transición (ms) -->
+            <parameter name="slider_speed" xsi:type="text" required="false" visible="true" sort_order="2">
+                <label translate="true">Slider Speed (ms)</label>
+                <value>4000</value>
+            </parameter>
+
+            <!-- Mostrar flechas (next/prev) -->
+            <parameter name="show_arrows" xsi:type="select" visible="true" sort_order="3">
+                <label translate="true">Show Arrows?</label>
+                <options>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                    <option name="no" value="0">
+                        <label translate="true">No</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <!-- Mostrar paginación/bullets -->
+            <parameter name="show_pagination" xsi:type="select" visible="true" sort_order="4">
+                <label translate="true">Show Pagination?</label>
+                <options>
+                    <option name="yes" value="1">
+                        <label translate="true">Yes</label>
+                    </option>
+                    <option name="no" value="0">
+                        <label translate="true">No</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

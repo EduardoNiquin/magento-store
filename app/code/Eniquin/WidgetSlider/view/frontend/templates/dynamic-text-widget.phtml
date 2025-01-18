@@ -1,0 +1,16 @@
+<?php
+/** @var \Eniquin\WidgetSlider\Block\Widget\DynamicTextWidget $block */
+$textRows = $block->getTextRows();
+?>
+
+<div class="eniquin-dynamic-text-widget">
+    <?php if (!empty($textRows)): ?>
+        <ul>
+            <?php foreach ($textRows as $txt): ?>
+                <li><?= $block->escapeHtml($txt) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No hay textos guardados</p>
+    <?php endif; ?>
+</div>
