@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15d4c710c82b8360fee9121fc50eb312",
+    "content-hash": "0fbb15b2e622e63bf85bf79a3f966e46",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19171,6 +19171,155 @@
             "time": "2024-12-18T14:59:28+00:00"
         },
         {
+            "name": "mageplaza/magento-2-spanish-language-pack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-spanish-language-pack.git",
+                "reference": "83a0c3cec86804115ca4beed3b0aea0be1b2fd58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-spanish-language-pack/zipball/83a0c3cec86804115ca4beed3b0aea0be1b2fd58",
+                "reference": "83a0c3cec86804115ca4beed3b0aea0be1b2fd58",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.3.13"
+            },
+            "default-branch": true,
+            "type": "magento2-language",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza team",
+                    "email": "hi@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Leader"
+                }
+            ],
+            "description": "Spanish language package for Magento 2",
+            "homepage": "https://www.mageplaza.com",
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-spanish-language-pack/issues",
+                "source": "https://github.com/mageplaza/magento-2-spanish-language-pack/tree/master"
+            },
+            "time": "2023-04-28T09:27:06+00:00"
+        },
+        {
+            "name": "mageplaza/module-core",
+            "version": "1.5.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "64fc245876d9e1d5d6dd9d44963e641cc3c81e29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/64fc245876d9e1d5d6dd9d44963e641cc3c81e29",
+                "reference": "64fc245876d9e1d5d6dd9d44963e641cc3c81e29",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "support": {
+                "source": "https://github.com/mageplaza/module-core/tree/v1.5.10"
+            },
+            "time": "2025-01-10T03:40:31+00:00"
+        },
+        {
+            "name": "mageplaza/module-smtp",
+            "version": "4.7.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-smtp.git",
+                "reference": "68ad9f59ff064492bb067a01791c1794922c5b93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/68ad9f59ff064492bb067a01791c1794922c5b93",
+                "reference": "68ad9f59ff064492bb067a01791c1794922c5b93",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.5.9"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Smtp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "SMTP Extension for Magento 2 helps the owner of store simply install SMTP (Simple Mail Transfer Protocol) server which transmits the messages into codes or numbers",
+            "keywords": [
+                "Facebook ADS",
+                "Marketing Automation",
+                "Messenger",
+                "email",
+                "email marketing",
+                "email settings",
+                "facebook",
+                "gmail smtp",
+                "google ads",
+                "magento 2",
+                "magento 2 smtp",
+                "magento smtp",
+                "mageplaza",
+                "sms",
+                "sms marketing",
+                "smtp",
+                "web push notification",
+                "whatsapp"
+            ],
+            "support": {
+                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.14"
+            },
+            "time": "2024-12-03T06:30:24+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.10.0",
             "source": {
@@ -29476,10 +29625,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "mageplaza/magento-2-spanish-language-pack": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
