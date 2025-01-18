@@ -1,0 +1,54 @@
+<div class="personal-header-theme">
+    <div class="left-header">
+        <div class="logo">
+            <a href="<?= $block->escapeUrl($block->getLogoUrl()) ?>" title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>" class="logo">
+                <img src="<?= $block->escapeUrl($block->getLogoSrc()) ?>" alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>" />
+            </a>
+        </div>
+        <div class="Menu">
+            <div class="Menu-item">
+                <a href="#">Colecciones</a>
+            </div>
+            <div class="Menu-item">
+                <a href="#">Marcas</a>
+            </div>
+        </div>
+    </div>
+    <div class="right-header">
+        <!--search form-->
+        <div class="search-form">
+            <form action="<?= $block->escapeUrl($block->getFormAction()) ?>" method="post" id="search_mini_form">
+                <div class="search-input">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" name="search" id="search" placeholder="Search" class="input-text" />
+                </div>
+                <button type="submit" title="Search" class="button">
+                    <span>Search</span>
+                </button>
+            </form>
+        </div>
+        <div class="account-info">
+            <!--day night mode button-->
+            <div class="day-night-mode-button">
+                <button type="button" title="Day night mode" class="button">
+                    <span>Day night mode</span>
+                </button>
+            </div>
+            <!--login register button-->
+            <div class="login-register-button">
+                <a href="<?= $block->escapeUrl($block->getLoginUrl()) ?>" class="button">
+                    <span>Login</span>
+                </a>
+                <a href="<?= $block->escapeUrl($block->getRegisterUrl()) ?>" class="button">
+                    <span>Register</span>
+                </a>
+            </div>
+            <!--mini cart button-->
+            <div class="mini-cart-button">
+                <a href="<?= $block->escapeUrl($block->getMiniCartUrl()) ?>" class="button">
+                    <span>Cart</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

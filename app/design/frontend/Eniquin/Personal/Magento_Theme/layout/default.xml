@@ -1,0 +1,27 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/source/_typography.less" />
+    </head>
+    
+    <body>
+        <!-- HEADER -->
+        <referenceContainer name="header.container">
+            <block class="Magento\Framework\View\Element\Template" name="custom.header" template="Magento_Theme::personal_header.phtml" before="-"/>
+        </referenceContainer>
+        <!-- HEADER -->
+
+        <!-- FOOTER -->
+        <referenceContainer name="footer-container">
+            <block class="Magento\Framework\View\Element\Template" name="custom.footer" template="Magento_Theme::personal_footer.phtml" before="-"/>
+        </referenceContainer>
+        <!-- FOOTER -->
+
+        <!-- Eliminar bloques predeterminados -->
+        <referenceBlock name="top.links" remove="true"/>
+        <referenceBlock name="minicart" remove="true"/>
+        <referenceBlock name="logo" remove="true"/>
+        <referenceBlock name="top.search" remove="true"/>
+        <referenceBlock name="footer" remove="true"/> <!-- Eliminar footer predeterminado -->
+        <referenceBlock name="form.subscribe" remove="true"/> <!-- Eliminar newsletter -->
+    </body>
+</page>
