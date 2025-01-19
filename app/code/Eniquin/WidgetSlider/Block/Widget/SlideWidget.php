@@ -5,6 +5,9 @@ namespace Eniquin\WidgetSlider\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 
+/**
+ * Bloque principal del Slider.
+ */
 class SlideWidget extends Template implements BlockInterface
 {
     protected $_template = 'slide-widget.phtml';
@@ -38,7 +41,6 @@ class SlideWidget extends Template implements BlockInterface
             return [];
         }
 
-        // Cada slide viene separado por coma
         $slideRows = array_filter(
             explode(',', $rawSlides),
             fn($slideRow) => trim($slideRow) !== ''
@@ -63,7 +65,39 @@ class SlideWidget extends Template implements BlockInterface
     }
 
     /**
-     * Retorna la velocidad de transición (ms)
+     * Dirección del slider: "horizontal" o "vertical"
+     */
+    public function getDirection(): string
+    {
+        return $this->getData('slider_direction') ?: 'horizontal';
+    }
+
+    /**
+     * Tipo de paginación: "bullets", "fraction", "progressbar"
+     */
+    public function getPaginationType(): string
+    {
+        return $this->getData('pagination_type') ?: 'bullets';
+    }
+
+    /**
+     * Efecto de transición: "slide", "fade", "cube", "coverflow", "flip"
+     */
+    public function getSliderEffect(): string
+    {
+        return $this->getData('slider_effect') ?: 'slide';
+    }
+
+    /**
+     * Número de slides visibles
+     */
+    public function getSlidesPerView(): int
+    {
+        return (int) ($this->getData('slides_per_view') ?: 1);
+    }
+
+    /**
+     * Velocidad de transición (ms)
      */
     public function getSliderSpeed(): int
     {

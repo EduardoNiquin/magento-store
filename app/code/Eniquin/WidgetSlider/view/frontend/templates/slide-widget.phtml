@@ -6,7 +6,13 @@ $jsonSlides     = json_encode($slides);
 $sliderSpeed    = $block->getSliderSpeed();
 $showArrows     = $block->showArrows() ? 'true' : 'false';
 $showPagination = $block->showPagination() ? 'true' : 'false';
-$widgetUid      = $block->getWidgetUid();
+
+$sliderDirection   = $block->getDirection();       // horizontal|vertical
+$paginationType    = $block->getPaginationType();  // bullets|fraction|progressbar
+$sliderEffect      = $block->getSliderEffect();    // slide|fade|cube|coverflow|flip
+$slidesPerView     = $block->getSlidesPerView();
+
+$widgetUid         = $block->getWidgetUid();
 ?>
 
 <div class="eniquin-slider-container <?= $widgetUid ?>">
@@ -15,10 +21,12 @@ $widgetUid      = $block->getWidgetUid();
             <div class="swiper-wrapper" id="my-swiper-wrapper-<?= $widgetUid ?>">
                 <!-- Se poblará vía JavaScript -->
             </div>
-            <?php if ($block->showPagination()): ?>
+
+            <?php if ($showPagination === 'true'): ?>
                 <div class="swiper-pagination swiper-pagination-<?= $widgetUid ?>"></div>
             <?php endif; ?>
-            <?php if ($block->showArrows()): ?>
+
+            <?php if ($showArrows === 'true'): ?>
                 <div class="swiper-button-next swiper-button-next-<?= $widgetUid ?>"></div>
                 <div class="swiper-button-prev swiper-button-prev-<?= $widgetUid ?>"></div>
             <?php endif; ?>
@@ -29,12 +37,18 @@ $widgetUid      = $block->getWidgetUid();
 <script type="text/javascript">
 require(['jquery'], function($) {
     $(document).ready(function(){
-        var slidesData   = <?=$jsonSlides?> || [];
-        var slidesCount  = <?=$slidesCount?>;
-        var sliderSpeed  = <?=$sliderSpeed?>;
-        var showArrows   = <?=$showArrows?>;
-        var showPag      = <?=$showPagination?>;
+        var slidesData       = <?=$jsonSlides?> || [];
+        var slidesCount      = <?=$slidesCount?>;
+        var sliderSpeed      = <?=$sliderSpeed?>;
+        var showArrows       = <?=$showArrows?> === 'true';
+        var showPagination   = <?=$showPagination?> === 'true';
 
+        var sliderDirection  = '<?=$sliderDirection?>';   // "horizontal" o "vertical"
+        var paginationType   = '<?=$paginationType?>';    // "bullets", "fraction" o "progressbar"
+        var sliderEffect     = '<?=$sliderEffect?>';      // "slide", "fade", "cube", "coverflow", "flip"
+        var slidesPerView    = <?=$slidesPerView?>;        // número entero
+
+        // Para pantallas móviles, usaremos la imagen "mobile" si está disponible
         var screenWidth = window.innerWidth;
         var isMobile = screenWidth <= 768;
 
@@ -43,7 +57,7 @@ require(['jquery'], function($) {
 
         slidesData.forEach(function(slide) {
             // Determinar la imagen según el tamaño
-            var imageSrc = isMobile && slide.mobile ? slide.mobile : slide.desktop;
+            var imageSrc = (isMobile && slide.mobile) ? slide.mobile : slide.desktop;
             imageSrc = imageSrc ? imageSrc.trim() : '';
 
             var slideHtml = '<div class="swiper-slide <?= $widgetUid ?>-slide">';
@@ -58,7 +72,7 @@ require(['jquery'], function($) {
                         var text = (btn.text || '').trim();
                         var url  = (btn.url || '').trim();
                         if (text !== '' || url !== '') {
-                            slideHtml += '<a href="' + url + '" class="slide-button <?= $widgetUid ?>-button">' + text + '</a>';
+                            slideHtml += '<a href="' + url + '" class="slide-button <?= $widgetUid ?>-button" target="_blank">' + text + '</a>';
                         }
                     });
                     slideHtml += '</div>';
@@ -69,25 +83,29 @@ require(['jquery'], function($) {
             $swiperWrapper.append(slideHtml);
         });
 
-        // Iniciar Swiper si hay >= 2 slides
-        if (slidesCount >= 2) {
+        // Iniciar Swiper solo si tenemos al menos 1 slide
+        if (slidesCount > 0) {
             var swiper = new Swiper('#slider-<?= $widgetUid ?>', {
-                loop: true,
-                slidesPerView: 1,
+                loop: (slidesCount > 1), // loop solo si hay más de 1 slide
+                direction: sliderDirection,
+                effect: sliderEffect,
+                slidesPerView: slidesPerView,
                 autoplay: sliderSpeed > 0 ? {
                     delay: sliderSpeed,
                     disableOnInteraction: false,
                 } : false,
-                navigation: {
+                navigation: showArrows ? {
                     nextEl: '.swiper-button-next-<?= $widgetUid ?>',
                     prevEl: '.swiper-button-prev-<?= $widgetUid ?>',
-                },
-                pagination: {
+                } : {},
+                pagination: showPagination ? {
                     el: '.swiper-pagination-<?= $widgetUid ?>',
                     clickable: true,
-                },
+                    type: paginationType // 'bullets' | 'fraction' | 'progressbar'
+                } : {},
             });
         }
     });
 });
 </script>
+

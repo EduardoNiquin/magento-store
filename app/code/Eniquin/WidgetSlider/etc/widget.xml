@@ -33,7 +33,7 @@
             <parameter name="show_arrows" xsi:type="select" visible="true" sort_order="3">
                 <label translate="true">Show Arrows?</label>
                 <options>
-                    <option name="yes" value="1">
+                    <option name="yes" value="1" selected="true">
                         <label translate="true">Yes</label>
                     </option>
                     <option name="no" value="0">
@@ -46,7 +46,7 @@
             <parameter name="show_pagination" xsi:type="select" visible="true" sort_order="4">
                 <label translate="true">Show Pagination?</label>
                 <options>
-                    <option name="yes" value="1">
+                    <option name="yes" value="1" selected="true">
                         <label translate="true">Yes</label>
                     </option>
                     <option name="no" value="0">
@@ -54,6 +54,64 @@
                     </option>
                 </options>
             </parameter>
+
+            <!-- Dirección del slider -->
+            <parameter name="slider_direction" xsi:type="select" visible="true" required="false" sort_order="5">
+                <label translate="true">Slider Direction</label>
+                <options>
+                    <option name="horizontal" value="horizontal" selected="true">
+                        <label translate="true">Horizontal</label>
+                    </option>
+                    <option name="vertical" value="vertical">
+                        <label translate="true">Vertical</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <!-- Tipo de paginación -->
+            <parameter name="pagination_type" xsi:type="select" visible="true" required="false" sort_order="6">
+                <label translate="true">Pagination Type</label>
+                <options>
+                    <option name="bullets" value="bullets" selected="true">
+                        <label translate="true">Bullets</label>
+                    </option>
+                    <option name="fraction" value="fraction">
+                        <label translate="true">Fraction</label>
+                    </option>
+                    <option name="progress" value="progressbar">
+                        <label translate="true">Progress</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <!-- Efecto de transición -->
+            <parameter name="slider_effect" xsi:type="select" visible="true" required="false" sort_order="7">
+                <label translate="true">Slider Effect</label>
+                <options>
+                    <option name="slide" value="slide" selected="true">
+                        <label translate="true">Default (slide)</label>
+                    </option>
+                    <option name="fade" value="fade">
+                        <label translate="true">Fade</label>
+                    </option>
+                    <option name="cube" value="cube">
+                        <label translate="true">Cube</label>
+                    </option>
+                    <option name="coverflow" value="coverflow">
+                        <label translate="true">Coverflow</label>
+                    </option>
+                    <option name="flip" value="flip">
+                        <label translate="true">Flip</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <!-- Slides per View -->
+            <parameter name="slides_per_view" xsi:type="text" visible="true" required="false" sort_order="8">
+                <label translate="true">Slides per View</label>
+                <value>1</value>
+            </parameter>
+
         </parameters>
     </widget>
 </widgets>

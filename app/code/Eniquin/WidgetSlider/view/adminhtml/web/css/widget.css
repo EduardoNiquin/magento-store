@@ -1,96 +1,103 @@
 div#widget_options_Eniquin\\WidgetSlider\\Block\\Widget\\SlideWidget {
-
-    /* Contenedor principal */
-    .admin__field-control.control {
+    .content.ui-sortable {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
-        padding: 24px;
-        background: #f9f9f9;
+        grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas */
+        gap: 1rem; /* Espaciado entre elementos */
+    }
+
+    .admin__field.field.field-clone {
         border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        padding: 10px;
+        background-color: #f9f9f9; /* Fondo para distinguir cada slide */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        margin: 0px;
     }
 
-    .admin__field-control.control label {
-        font-size: 1.4rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #000000ba;
-    }
-
-    .admin__field-control.control input {
-        border: 1px solid #0000004f;
-        border-radius: 3px;
-        padding: 5px 10px;
-        color: #333;
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .admin__field-control.control .clone_remove {
-        display: inline-block;
-        padding: 6px 10px;
-        margin-top: 16px;
-        font-size: 14px;
-        color: #d42a2a;
-        text-decoration: none;
-        border: 1px solid #d42a2a;
-        border-radius: 4px;
-        background: #ffffff;
-        transition: all 0.3s ease;
-    }
-
-    .admin__field-control.control input.slide-hidden {
-        display: none !important;
-    }
-
-    .admin__field-control.control .clone_remove:hover {
-        background: #d42a2a;
-        color: #ffffff;
-        text-decoration: none;
-    }
-
-    .admin__field-control.control:hover {
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
-    }
-
-    /* Cada Slide */
-    .admin__field-slide {
+    .admin__field-control {
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        padding: 16px;
-        background: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        gap: 0.5rem; /* Espaciado interno entre inputs */
     }
 
-    /* Inputs */
-    .admin__field-slide input.slide-field {
-        border-radius: 8px;
+    /* Grupo de imagen */
+    .image-field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .image-input-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Grupo de botones */
+    .button-field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .btn-url-container {
+        display: flex;
+        gap: 8px;
+    }
+
+    /* Inputs de slide */
+    .slide-field {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
         background: #fff;
         font-size: 14px;
         color: #333;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     }
-
-    .admin__field-slide input.slide-field:focus {
+    .slide-field:focus {
         border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         outline: none;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
     }
 
-    /* Diseño responsivo */
-    @media (max-width: 600px) {
-        .admin__field-control.control {
-            gap: 16px;
-        }
+    /* Botones "Add Slide" y "Remove Slide" */
+    .clone_remove, .clone_new {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #f44336; /* Rojo para 'Eliminar' */
+        border: none;
+        border-radius: 3px;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
     }
 
+    .clone_new {
+        background-color: #4caf50; /* Verde para 'Añadir' */
+    }
+
+    .clone_remove:hover, .clone_new:hover {
+        opacity: 0.9;
+    }
+
+    /* Botón que abre la media gallery */
+    .admin__control-btn {
+        padding: 6px 10px;
+        background-color: #999;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+    .admin__control-btn:hover {
+        background-color: #777;
+    }
 }
 
 

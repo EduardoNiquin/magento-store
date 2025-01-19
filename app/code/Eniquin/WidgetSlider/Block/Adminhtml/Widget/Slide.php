@@ -56,6 +56,9 @@ class Slide extends Template implements RendererInterface
         return $html;
     }
 
+    /**
+     * Genera el HTML para cada "fila" de slide
+     */
     protected function getSlideRowHtml(AbstractElement $element, $value = null, bool $clone = false): string
     {
         // 8 campos: desktopImage|mobileImage|btnText1|btnUrl1|btnText2|btnUrl2|btnText3|btnUrl3
