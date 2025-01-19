@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fbb15b2e622e63bf85bf79a3f966e46",
+    "content-hash": "e1669b80976d3aca6a84bf795d819dad",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -1790,6 +1790,88 @@
                 "source": "https://github.com/firebase/php-jwt/tree/v6.10.2"
             },
             "time": "2024-11-24T11:22:49+00:00"
+        },
+        {
+            "name": "friendsofphp/proxy-manager-lts",
+            "version": "v1.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfPHP/proxy-manager-lts.git",
+                "reference": "2c8a6cffc3220e99352ad958fe7cf06bf6f7690f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfPHP/proxy-manager-lts/zipball/2c8a6cffc3220e99352ad958fe7cf06bf6f7690f",
+                "reference": "2c8a6cffc3220e99352ad958fe7cf06bf6f7690f",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-code": "~3.4.1|^4.0",
+                "php": ">=7.1",
+                "symfony/filesystem": "^4.4.17|^5.0|^6.0|^7.0"
+            },
+            "conflict": {
+                "laminas/laminas-stdlib": "<3.2.1",
+                "zendframework/zend-stdlib": "<3.2.1"
+            },
+            "replace": {
+                "ocramius/proxy-manager": "^2.1"
+            },
+            "require-dev": {
+                "ext-phar": "*",
+                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/Ocramius/ProxyManager",
+                    "name": "ocramius/proxy-manager"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProxyManager\\": "src/ProxyManager"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "https://ocramius.github.io/"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                }
+            ],
+            "description": "Adding support for a wider range of PHP versions to ocramius/proxy-manager",
+            "homepage": "https://github.com/FriendsOfPHP/proxy-manager-lts",
+            "keywords": [
+                "aop",
+                "lazy loading",
+                "proxy",
+                "proxy pattern",
+                "service proxies"
+            ],
+            "support": {
+                "issues": "https://github.com/FriendsOfPHP/proxy-manager-lts/issues",
+                "source": "https://github.com/FriendsOfPHP/proxy-manager-lts/tree/v1.0.18"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Ocramius",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ocramius/proxy-manager",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-03-20T12:50:41+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -5358,6 +5440,55 @@
                 "AFL-3.0"
             ],
             "description": "Chinese (China) language"
+        },
+        {
+            "name": "magento/magento-cloud-patches",
+            "version": "1.1.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/magento-cloud-patches/magento-magento-cloud-patches-1.1.2.0.zip",
+                "shasum": "b30ff788cdde4d69f247425cc58abceffbd985a2"
+            },
+            "require": {
+                "composer/composer": "^1.9 || ^2.0",
+                "composer/semver": "@stable",
+                "ext-json": "*",
+                "magento/quality-patches": "^1.1.0",
+                "monolog/monolog": "^1.25||^2.3||^2.7|| ^3.6",
+                "php": "^8.0",
+                "symfony/config": "^3.3||^4.4||^5.0||^6.0",
+                "symfony/console": "^2.8 || ^4.0 || ^5.1 || ^5.4 || ^6.4",
+                "symfony/dependency-injection": "^3.3||^4.3||^5.0||^6.0",
+                "symfony/process": "^2.1 || ^4.1 || ^5.1 || ^5.4 || ^6.4",
+                "symfony/proxy-manager-bridge": "^3.3||^4.3||^5.0||^6.0",
+                "symfony/yaml": "^3.3||^4.0||^5.0||^6.0||^7.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1 || ^5.1",
+                "codeception/module-asserts": "^1.2 || ^3.0",
+                "codeception/module-db": "^1.0 || ^3.0",
+                "codeception/module-phpbrowser": "^1.0 || ^3.0",
+                "codeception/module-rest": "^1.2 || ^3.0",
+                "consolidation/robo": "^1.2 || ^3.0 || ^5.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^8.5 || ^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "bin": [
+                "bin/ece-patches",
+                "bin/magento-patches"
+            ],
+            "type": "magento2-component",
+            "autoload": {
+                "psr-4": {
+                    "Magento\\CloudPatches\\": "src/",
+                    "Magento\\CloudPatches\\Test\\Functional\\": "tests/functional/"
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Provides critical fixes for Magento 2 Enterprise Edition"
         },
         {
             "name": "magento/magento-composer-installer",
@@ -18618,6 +18749,44 @@
             "description": "eCommerce Platform for Growth (Community Edition)"
         },
         {
+            "name": "magento/quality-patches",
+            "version": "1.1.58",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/quality-patches/magento-quality-patches-1.1.58.0.zip",
+                "shasum": "fdd782335012ce30e4dcc2e58f5aed3056a6a699"
+            },
+            "require": {
+                "ext-json": "*",
+                "magento/magento-cloud-patches": "^1.0.11",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1 || ^5.1",
+                "codeception/module-asserts": "^1.2 || ^3.0",
+                "codeception/module-db": "^1.0 || ^3.0",
+                "codeception/module-phpbrowser": "^1.0 || ^3.0",
+                "codeception/module-rest": "^1.2 || ^3.0",
+                "composer/semver": "@stable",
+                "consolidation/robo": "^1.2 || ^2.0 || ^3.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^8.5 || ^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "magento2-component",
+            "autoload": {
+                "psr-4": {
+                    "Magento\\QualityPatches\\": "src/",
+                    "Magento\\QualityPatches\\Test\\Functional\\": "tests/functional/",
+                    "Magento\\QualityPatches\\Sniffs\\": "tests/static/sniffs/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Provides quality patches for AdobeCommerce & Magento OpenSource"
+        },
+        {
             "name": "magento/sample-data-media",
             "version": "100.4.0",
             "dist": {
@@ -23765,6 +23934,73 @@
                 }
             ],
             "time": "2024-11-06T14:19:14+00:00"
+        },
+        {
+            "name": "symfony/proxy-manager-bridge",
+            "version": "v6.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/proxy-manager-bridge.git",
+                "reference": "8932b572e147e80fb498045c580eb14215197529"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/proxy-manager-bridge/zipball/8932b572e147e80fb498045c580eb14215197529",
+                "reference": "8932b572e147e80fb498045c580eb14215197529",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/proxy-manager-lts": "^1.0.2",
+                "php": ">=8.1",
+                "symfony/dependency-injection": "^6.3|^7.0",
+                "symfony/deprecation-contracts": "^2.5|^3"
+            },
+            "require-dev": {
+                "symfony/config": "^6.1|^7.0"
+            },
+            "type": "symfony-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\ProxyManager\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides integration for ProxyManager with various Symfony components",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/proxy-manager-bridge/tree/v6.4.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-09-25T14:18:03+00:00"
         },
         {
             "name": "symfony/service-contracts",
